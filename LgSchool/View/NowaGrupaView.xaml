@@ -1,0 +1,78 @@
+﻿<local:JedenWszystkieViewBase x:Class="LgSchool.View.NowaGrupaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LgSchool.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Content="Nazwa" Margin="0,8,0,8"/>
+        <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=Nazwa, 
+            UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="1" Content="Numer" Margin="0,8,0,8"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=Numer, 
+            UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="2" Content="Opis" Margin="0,8,0,8"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=Opis, 
+            UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Grid.Column="0" Grid.Row="3" Content="Poziom" Margin="0,8,0,8"/>
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="3" 
+            Margin="0,8,0,8" 
+            ItemsSource="{Binding Path=PoziomyComboboxItems}"
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=PoziomID, Mode=TwoWay}"/>
+
+        <!--<Label Grid.Column="0" Grid.Row="3" Content="Imię i nazwisko" Margin="0,8,0,8"/>
+        <Label   
+            Grid.Column="1" 
+            Grid.Row="3" 
+            Margin="0,8,0,8"
+            Background="White"
+            Width="250"
+            HorizontalAlignment="Left"
+            Content="{Binding Path=UczenNazwa, UpdateSourceTrigger=PropertyChanged}"
+            />
+        <Button Content="..." Grid.Column="1" Grid.Row="3" Width="50" Margin="0,8,0,8" 
+                HorizontalAlignment="Right" Command="{Binding ShowUczniowie}"/>-->
+
+        <Label Grid.Column="0" Grid.Row="4" Content="Nazwa kursu" Margin="0,8,0,8"/>
+        <ComboBox 
+            Grid.Column="1" 
+            Grid.Row="4" 
+            Margin="0,8,0,8" 
+            ItemsSource="{Binding Path=KursyComboboxItems}"
+            DisplayMemberPath="Value"
+            SelectedValuePath="Key"
+            SelectedValue="{Binding Path=KursID, Mode=TwoWay}"/>
+
+        <DataGrid Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="2" AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Imię" Binding="{Binding UczenImie}"/>
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding UczenNazwisko}"/>
+                <DataGridTextColumn Header="Pesel" Binding="{Binding UczenPesel}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:JedenWszystkieViewBase>

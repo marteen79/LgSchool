@@ -1,0 +1,409 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vw="clr-namespace:LgSchool.View"
+                    xmlns:vm="clr-namespace:LgSchool.ViewModel">
+    <Style TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#373737" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="2" Background="{TemplateBinding Background}">
+                        <Grid>
+                            <!--<Path x:Name="PathIcon" Width="15" Height="25" Stretch="Fill" Fill="#4C87B3" HorizontalAlignment="Left" Margin="17,0,0,0" Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>-->
+                            <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Gray" />
+                            <Setter Property="Foreground" Value="White" />
+                            <!--<Setter TargetName="PathIcon" Property="Fill" Value="Black" />-->
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="Black" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="StylMainMenu">
+        <Setter Property="Menu.Margin" Value="5"/>
+        <Setter Property="Menu.VerticalAlignment" Value="Stretch"/>
+        <Setter Property="Menu.Background" Value="#AEC7F5"/>
+        <Setter Property="Menu.FontFamily" Value="Monaco"/>
+        <Setter Property="Menu.Foreground" Value="#FF3E3E6C"/>
+        <Setter Property="Menu.FontWeight" Value="Bold"/>
+        <Setter Property="Menu.Height" Value="100"/>
+    </Style>
+
+    <Style x:Key="StylLabel">
+        <Setter Property="Panel.Background" Value="#AEC7F5"/>
+    </Style>
+
+    <Style x:Key="StylMainToolbar">
+        <Setter Property="ToolBar.Margin" Value="2"/>
+        <Setter Property="ToolBar.Background" Value="#AEC7F5"/>
+        <Setter Property="ToolBar.BorderBrush" Value="LightGray"/>
+        <Setter Property="ToolBar.BorderThickness" Value="1"/>
+    </Style>
+
+    <Style x:Key="StylMenuItem" TargetType="MenuItem">
+        <Setter Property="ContextMenu.Background" Value="#AEC7F5"/>
+        <Setter Property="ContextMenu.Foreground" Value="#FF3E3E6C"/>
+        <Setter Property="ContextMenu.Cursor" Value="Hand"/>
+        <Setter Property="ContextMenu.Padding" Value="0"/>
+    </Style>
+    <Style x:Key="StatusBar">
+        <Setter Property="StatusBar.Background" Value="#AEC7F5"/>
+        <Setter Property="StatusBar.FontFamily" Value="Comic Sans"/>
+        <Setter Property="StatusBar.FontSize" Value="20"/>
+        <Setter Property="StatusBar.Padding" Value="10,0"/>
+    </Style>
+    <Style x:Key="StylLabelBiznesowy">
+        <Setter Property="Label.Margin" Value="2"/>
+        <Setter Property="Label.Height" Value="32"/>
+        <Setter Property="Label.Background" Value="LightBlue"/>
+        <Setter Property="Label.Foreground" Value="White"/>
+    </Style>
+
+    <Style x:Key="StylButtonBiznesowy">
+        <Setter Property="Button.Margin" Value="10,2,2,2"/>
+        <Setter Property="Button.Height" Value="32"/>
+        <Setter Property="Button.Background" Value="LightBlue"/>
+        <Setter Property="Button.Foreground" Value="White"/>
+    </Style>
+
+    <Style x:Key="StylCheckBoxBiznesowy">
+        <Setter Property="CheckBox.Background" Value="Azure"/>
+        <Setter Property="CheckBox.VerticalAlignment" Value="Center"/>
+        <Setter Property="CheckBox.Margin" Value="10,2,2,2"/>
+    </Style>
+
+    <Style x:Key="StylTextBoxBiznesowy">
+        <Setter Property="TextBox.Margin" Value="2"/>
+    </Style>
+
+    <Style x:Key="StylStackPanelBiznesowy">
+        <Setter Property="StackPanel.Background" Value="Azure"/>
+    </Style>
+
+    <Style x:Key="StylComboBoxBiznesowy">
+        <Setter Property="ComboBox.Margin" Value="2"/>
+        <Setter Property="ComboBox.Background" Value="White"/>
+    </Style>
+
+    <DataTemplate DataType="{x:Type vm:NowyPoziomViewModel}">
+        <vw:NowyPoziomView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:WszystkiePoziomyViewModel}">
+        <vw:WszystkiePoziomyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieKategorieOcenViewModel}">
+        <vw:WszystkieKategorieOcenView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaKategoriaOcenViewModel}">
+        <vw:NowaKategoriaOcenView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieGatunkiViewModel}">
+        <vw:WszystkieGatunkiView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyGatunekViewModel}">
+        <vw:NowyGatunekView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaUslugaViewModel}">
+        <vw:NowaUslugaView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieUslugiViewModel}">
+        <vw:WszystkieUslugiView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszyscyUzytkownicyViewModel}">
+        <vw:WszyscyUzytkownicyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyUzytkownikViewModel}">
+        <vw:NowyUzytkownikView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszyscyAutorzyViewModel}">
+        <vw:WszyscyAutorzyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyAutorViewModel}">
+        <vw:NowyAutorView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:WszystkieFirmyViewModel}">
+        <vw:WszystkieFirmyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaFirmaViewModel}">
+        <vw:NowaFirmaView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszyscyUczniowieViewModel}">
+        <vw:WszyscyUczniowieView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyUczenViewModel}">
+        <vw:NowyUczenView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszyscyPracownicyViewModel}">
+        <vw:WszyscyPracownicyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyPracownikViewModel}">
+        <vw:NowyPracownikView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieWplatyViewModel}">
+        <vw:WszystkieWplatyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaWplataViewModel}">
+        <vw:NowaWplataView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:WszystkieKursyViewModel}">
+        <vw:WszystkieKursyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyKursViewModel}">
+        <vw:NowyKursView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieOcenyViewModel}">
+        <vw:WszystkieOcenyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaOcenaViewModel}">
+        <vw:NowaOcenaView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieCennikiViewModel}">
+        <vw:WszystkieCennikiView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:NowyCennikViewModel}">
+        <vw:NowyCennikView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:WszystkieGrupyViewModel}">
+        <vw:WszystkieGrupyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaGrupaViewModel}">
+        <vw:NowaGrupaView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaFakturaViewModel}">
+        <vw:NowaFakturaView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieFakturyViewModel}">
+        <vw:WszystkieFakturyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieMaterialyViewModel}">
+        <vw:WszystkieMaterialyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NoweMaterialyViewModel}">
+        <vw:NowyMaterialView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaPozycjaFakturyViewModel}">
+        <vw:NowaPozycjaFakturyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:InvoiceViewModelAll}">
+        <vw:InvoiceViewAll/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieTypyMaterialowViewModel}">
+        <vw:WszystkieTypyMaterialowView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieStatusyViewModel}">
+        <vw:WszystkieStatusyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyTypMaterialowViewModel}">
+        <vw:NowyTypMaterialowView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyStatusViewModel}">
+        <vw:NowyStatusView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieTytulyWplatViewModel}">
+        <vw:WszystkieTytulyWplatView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowyTytulWplatyViewModel}">
+        <vw:NowyTytulWplatyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaListaDoGrupyViewModel}">
+        <vw:NowaListaDoGrupyView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieListyDoGrupViewModel}">
+        <vw:WszystkieListyDoGrupView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NewGroupListViewModel}">
+        <vw:NewGroupListView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:WszystkieListyDoUczniaViewModel}">
+        <vw:WszystkieListyDoUczniaView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NowaListaDoUczniaViewModel}">
+        <vw:NowaListaDoUczniaView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NewGradeListViewModel}">
+        <vw:NewGradeListView/>
+    </DataTemplate>
+
+
+    <!-- 
+  This style configures both of the main content areas in the main window.
+  -->
+    <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
+        <Setter Property="HeaderTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border 
+            Background="#AEC7F5" 
+            BorderBrush="LightGray" 
+            BorderThickness="1" 
+            CornerRadius="5" 
+            Margin="4" 
+            Padding="4" 
+            SnapsToDevicePixels="True" 
+            >
+                        <TextBlock 
+              FontSize="14"
+              FontWeight="Bold"
+              Foreground="#FF3E3E6C" 
+              HorizontalAlignment="Center"  
+              Text="{TemplateBinding Content}" 
+              />
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <!-- 
+        This template ensures that content of a HeaderedContentControl 
+        fills the available vertical space. 
+        -->
+                <ControlTemplate TargetType="{x:Type HeaderedContentControl}">
+                    <DockPanel>
+                        <ContentPresenter 
+              DockPanel.Dock="Top"
+              ContentSource="Header" 
+              ContentTemplate="{TemplateBinding HeaderTemplate}" 
+              />
+                        <ContentPresenter 
+              ContentSource="Content" 
+              ContentTemplate="{TemplateBinding ContentTemplate}" 
+              />
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--
+  This style ensures that the borders in the main window are consistent.
+  -->
+    <Style x:Key="MainBorderStyle" TargetType="{x:Type Border}">
+        <Setter Property="Background" Value="WhiteSmoke" />
+        <Setter Property="BorderBrush" Value="LightGray" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+
+    <!--
+  This template explains how to render the list of commands on the left
+  side in the main window (the 'Control Panel' area).
+  -->
+    <DataTemplate x:Key="CommandsTemplate">
+        <ItemsControl IsTabStop="False" ItemsSource="{Binding}" Margin="6,2">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Command="{Binding Path=Command}" Margin="6,6,6,0">
+                    <TextBlock Margin="2,6">
+            <!--<Hyperlink Command="{Binding Path=Command}">-->
+              <TextBlock Text="{Binding Path=DisplayName}" />
+            <!--</Hyperlink>-->
+          </TextBlock>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DataTemplate>
+
+    <!-- 
+  This template explains how to render 
+  a tab item with a close button.
+  -->
+    <DataTemplate x:Key="ClosableTabItemTemplate">
+        <DockPanel Width="120">
+            <Button 
+        Command="{Binding Path=CloseCommand}"
+        Content="X"
+        Cursor="Hand"
+        DockPanel.Dock="Right"
+        Focusable="False"
+        FontFamily="Courier" 
+        FontSize="9"
+        FontWeight="Bold" 
+        Margin="0,1,0,0"
+        Padding="0"
+        VerticalContentAlignment="Bottom"
+        Width="16" Height="16" 
+        />
+            <ContentPresenter 
+        Content="{Binding Path=DisplayName}" 
+        VerticalAlignment="Center" 
+        />
+        </DockPanel>
+    </DataTemplate>
+
+    <!--
+  This template explains how to render the 'Workspace' content area in the main window.
+  -->
+    <DataTemplate x:Key="WorkspacesTemplate">
+        <TabControl 
+      IsSynchronizedWithCurrentItem="True" 
+      ItemsSource="{Binding}" 
+      ItemTemplate="{StaticResource ClosableTabItemTemplate}"
+      Margin="4"
+      
+      />
+    </DataTemplate>
+
+</ResourceDictionary>

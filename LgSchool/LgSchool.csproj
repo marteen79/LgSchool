@@ -1,0 +1,789 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4BFD8CA1-047F-4996-B91A-589420FCA7DC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LgSchool</RootNamespace>
+    <AssemblyName>LgSchool</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.3.0.19032, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.3.0.19032, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Model\BusinessLogic\DatabaseClass.cs" />
+    <Compile Include="Model\BusinessLogic\Functionality\DataWithForeignKey.cs" />
+    <Compile Include="Model\BusinessLogic\Functionality\DataWithoutForeignKey.cs" />
+    <Compile Include="Model\BusinessLogic\Sprzedaz\FirmaStandard.cs" />
+    <Compile Include="Model\BusinessLogic\Sprzedaz\FakturaB.cs" />
+    <Compile Include="Model\BusinessLogic\Sprzedaz\FirmaB.cs" />
+    <Compile Include="Model\BusinessLogic\Sprzedaz\FirmaVip.cs" />
+    <Compile Include="Model\BusinessLogic\Sprzedaz\SprzedazB.cs" />
+    <Compile Include="Model\BusinessLogic\Sprzedaz\UslugaB.cs" />
+    <Compile Include="Model\BusinessLogic\Sprzedaz\ZyskB.cs" />
+    <Compile Include="Model\EntitiesForView\AutorForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\BonusyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\CennikiForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\ComboboxKeyAndValue.cs" />
+    <Compile Include="Model\EntitiesForView\DostepnoscForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\FakturyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\FirmyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\GatunkiForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\GrupyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\KategorieOcenForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\KursyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\ListaDoGrupyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\MaterialyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\OcenyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\OcenyUczniaForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\PoziomyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\PozycjeFakturyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\PracownicyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\RodzajePlatnosciForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\RozliczeniaForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\StanowiskaForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\StatusyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\TypyMaterialowForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\TytulyWplatForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\UczniowieForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\UslugiForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\UzytkownicyForAllView.cs" />
+    <Compile Include="Model\EntitiesForView\WplatyForAllView.cs" />
+    <Compile Include="Model\Entities\Autor.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Bonusy.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Cennik.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Dostepnosc.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Faktura.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Firma.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Gatunek.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Grupa.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\KategoriaOcen.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Kurs.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\LgSchoolDatabase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgSchoolDatabase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\LgSchoolDatabase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\LgSchoolDatabase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LgSchoolDatabase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\LgSchoolEntities.cs" />
+    <Compile Include="Model\Entities\ListaDoGrup.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Materialy.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Ocena.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\OcenyUcznia.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Poziom.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\PozycjeFaktury.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Pracownik.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\RodzajPlatnosci.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Rozliczenie.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Stanowisko.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Status.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\sysdiagrams.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\TypyMaterialow.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\TytulWplaty.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Uczen.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Usluga.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Uzytkownik.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Entities\Wplata.cs">
+      <DependentUpon>LgSchoolDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Validators\BirthdateValidator.cs" />
+    <Compile Include="Model\Validators\DateValidator.cs" />
+    <Compile Include="Model\Validators\NipValidator.cs" />
+    <Compile Include="Model\Validators\PeselValidator.cs" />
+    <Compile Include="Model\Validators\StringValidator.cs" />
+    <Compile Include="Model\Validators\Validator.cs" />
+    <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\CommandViewModel.cs" />
+    <Compile Include="ViewModel\InvoiceViewModelAll.cs" />
+    <Compile Include="ViewModel\JedenWszystkieViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\NewGradeListViewModel.cs" />
+    <Compile Include="ViewModel\NewGroupListViewModel.cs" />
+    <Compile Include="ViewModel\NowaFakturaViewModel.cs" />
+    <Compile Include="ViewModel\NowaFirmaViewModel.cs" />
+    <Compile Include="ViewModel\NowaGrupaViewModel.cs" />
+    <Compile Include="ViewModel\NowaKategoriaOcenViewModel.cs" />
+    <Compile Include="ViewModel\NowaListaDoGrupyViewModel.cs" />
+    <Compile Include="ViewModel\NowaListaDoUczniaViewModel.cs" />
+    <Compile Include="ViewModel\NowaOcenaViewModel.cs" />
+    <Compile Include="ViewModel\NowaPozycjaFakturyViewModel.cs" />
+    <Compile Include="ViewModel\NowaUslugaViewModel.cs" />
+    <Compile Include="ViewModel\NowaWplataViewModel.cs" />
+    <Compile Include="ViewModel\NoweMaterialyViewModel.cs" />
+    <Compile Include="ViewModel\NowyAutorViewModel.cs" />
+    <Compile Include="ViewModel\NowyCennikViewModel.cs" />
+    <Compile Include="ViewModel\NowyGatunekViewModel.cs" />
+    <Compile Include="ViewModel\NowyKursViewModel.cs" />
+    <Compile Include="ViewModel\NowyPoziomViewModel.cs" />
+    <Compile Include="ViewModel\NowyPracownikViewModel.cs" />
+    <Compile Include="ViewModel\NowyStatusViewModel.cs" />
+    <Compile Include="ViewModel\NowyTypMaterialowViewModel.cs" />
+    <Compile Include="ViewModel\NowyTytulWplatyViewModel.cs" />
+    <Compile Include="ViewModel\NowyUczenViewModel.cs" />
+    <Compile Include="ViewModel\NowyUzytkownikViewModel.cs" />
+    <Compile Include="ViewModel\NowyViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="ViewModel\WorkspaceViewModel.cs" />
+    <Compile Include="ViewModel\WszyscyAutorzyViewModel.cs" />
+    <Compile Include="ViewModel\WszyscyPracownicyViewModel.cs" />
+    <Compile Include="ViewModel\WszyscyUczniowieViewModel.cs" />
+    <Compile Include="ViewModel\WszyscyUzytkownicyViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieCennikiViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieFakturyViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieFirmyViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieGatunkiViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieGrupyViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieKategorieOcenViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieKursyViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieListyDoGrupViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieListyDoUczniaViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieMaterialyViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieOcenyViewModel.cs" />
+    <Compile Include="ViewModel\WszystkiePoziomyViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieRodzajePlatnosciViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieStatusyViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieTypyMaterialowViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieTytulyWplatViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieUslugiViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieViewModel.cs" />
+    <Compile Include="ViewModel\WszystkieWplatyViewModel.cs" />
+    <Compile Include="View\BezSortowaniaViewBase.cs" />
+    <Compile Include="View\InvoiceViewAll.xaml.cs">
+      <DependentUpon>InvoiceViewAll.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\JedenWszystkieViewBase.cs" />
+    <Compile Include="View\NewGradeListView.xaml.cs">
+      <DependentUpon>NewGradeListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NewGroupListView.xaml.cs">
+      <DependentUpon>NewGroupListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaFakturaView.xaml.cs">
+      <DependentUpon>NowaFakturaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaFirmaView.xaml.cs">
+      <DependentUpon>NowaFirmaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaGrupaView.xaml.cs">
+      <DependentUpon>NowaGrupaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaKategoriaOcenView.xaml.cs">
+      <DependentUpon>NowaKategoriaOcenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaListaDoGrupyView.xaml.cs">
+      <DependentUpon>NowaListaDoGrupyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaListaDoUczniaView.xaml.cs">
+      <DependentUpon>NowaListaDoUczniaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaOcenaView.xaml.cs">
+      <DependentUpon>NowaOcenaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaPozycjaFakturyView.xaml.cs">
+      <DependentUpon>NowaPozycjaFakturyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaUslugaView.xaml.cs">
+      <DependentUpon>NowaUslugaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowaWplataView.xaml.cs">
+      <DependentUpon>NowaWplataView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyAutorView.xaml.cs">
+      <DependentUpon>NowyAutorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyCennikView.xaml.cs">
+      <DependentUpon>NowyCennikView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyGatunekView.xaml.cs">
+      <DependentUpon>NowyGatunekView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyKursView.xaml.cs">
+      <DependentUpon>NowyKursView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyMaterialView.xaml.cs">
+      <DependentUpon>NowyMaterialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyPoziomView.xaml.cs">
+      <DependentUpon>NowyPoziomView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyPracownikView.xaml.cs">
+      <DependentUpon>NowyPracownikView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyStatusView.xaml.cs">
+      <DependentUpon>NowyStatusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyTypMaterialowView.xaml.cs">
+      <DependentUpon>NowyTypMaterialowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyTytulWplatyView.xaml.cs">
+      <DependentUpon>NowyTytulWplatyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyUczenView.xaml.cs">
+      <DependentUpon>NowyUczenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyUzytkownikView.xaml.cs">
+      <DependentUpon>NowyUzytkownikView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NowyViewBase.cs" />
+    <Compile Include="View\WszyscyAutorzyView.xaml.cs">
+      <DependentUpon>WszyscyAutorzyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszyscyPracownicyView.xaml.cs">
+      <DependentUpon>WszyscyPracownicyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszyscyUczniowieView.xaml.cs">
+      <DependentUpon>WszyscyUczniowieView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszyscyUzytkownicyView.xaml.cs">
+      <DependentUpon>WszyscyUzytkownicyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieCennikiView.xaml.cs">
+      <DependentUpon>WszystkieCennikiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieFakturyView.xaml.cs">
+      <DependentUpon>WszystkieFakturyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieFirmyView.xaml.cs">
+      <DependentUpon>WszystkieFirmyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieGatunkiView.xaml.cs">
+      <DependentUpon>WszystkieGatunkiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieGrupyView.xaml.cs">
+      <DependentUpon>WszystkieGrupyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieKategorieOcenView.xaml.cs">
+      <DependentUpon>WszystkieKategorieOcenView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieKursyView.xaml.cs">
+      <DependentUpon>WszystkieKursyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieListyDoGrupView.xaml.cs">
+      <DependentUpon>WszystkieListyDoGrupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieListyDoUczniaView.xaml.cs">
+      <DependentUpon>WszystkieListyDoUczniaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieMaterialyView.xaml.cs">
+      <DependentUpon>WszystkieMaterialyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieOcenyView.xaml.cs">
+      <DependentUpon>WszystkieOcenyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkiePoziomyView.xaml.cs">
+      <DependentUpon>WszystkiePoziomyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieStatusyView.xaml.cs">
+      <DependentUpon>WszystkieStatusyView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieTypyMaterialowView.xaml.cs">
+      <DependentUpon>WszystkieTypyMaterialowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieTytulyWplatView.xaml.cs">
+      <DependentUpon>WszystkieTytulyWplatView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieUslugiView.xaml.cs">
+      <DependentUpon>WszystkieUslugiView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WszystkieViewBase.cs" />
+    <Compile Include="View\WszystkieWplatyView.xaml.cs">
+      <DependentUpon>WszystkieWplatyView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\InvoiceViewAll.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LgSchoolDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\BaseCommand.cs" />
+    <Compile Include="View\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="View\NewGradeListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NewGroupListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaFakturaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaFirmaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaGrupaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaKategoriaOcenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaListaDoGrupyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaListaDoUczniaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaOcenaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaPozycjaFakturyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaUslugaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowaWplataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyAutorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyCennikView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyGatunekView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyKursView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyMaterialView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyPoziomView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyPracownikView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyStatusView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyTypMaterialowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyTytulWplatyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyUczenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NowyUzytkownikView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszyscyAutorzyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszyscyPracownicyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszyscyUczniowieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszyscyUzytkownicyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieCennikiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieFakturyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieFirmyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieGatunkiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieGrupyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieKategorieOcenView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieKursyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieListyDoGrupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieListyDoUczniaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieMaterialyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieOcenyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkiePoziomyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieStatusyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieTypyMaterialowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieTytulyWplatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieUslugiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WszystkieWplatyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\Entities\LgSchoolDatabase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LgSchoolDatabase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Entities\LgSchoolDatabase.edmx.diagram">
+      <DependentUpon>LgSchoolDatabase.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\dziennik1.jpg" />
+    <Resource Include="Content\Icons\harmonogram1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\money1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\zapisz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\mainlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\saveFile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\close.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\autor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\register.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\help.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\graduate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\office.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\courses.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\groups.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\registerbook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\certificate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\settings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\add.png" />
+    <Resource Include="Content\Icons\change.png" />
+    <Resource Include="Content\Icons\delete.png" />
+    <Resource Include="Content\Icons\filter.png" />
+    <Resource Include="Content\Icons\refresh2.png" />
+    <Resource Include="Content\Icons\abort.png" />
+    <Resource Include="Content\Icons\save2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\osoby.png" />
+    <Resource Include="Content\Icons\worker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\delete2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Content\Icons\search1.png" />
+    <Resource Include="Content\Icons\search2.png" />
+    <Resource Include="Content\Icons\search3.png" />
+    <Resource Include="Content\Icons\search4.png" />
+    <Content Include="Model\Entities\LgSchoolDatabase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LgSchoolDatabase.edmx</DependentUpon>
+      <LastGenOutput>LgSchoolDatabase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Entities\LgSchoolDatabase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LgSchoolDatabase.edmx</DependentUpon>
+      <LastGenOutput>LgSchoolDatabase.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

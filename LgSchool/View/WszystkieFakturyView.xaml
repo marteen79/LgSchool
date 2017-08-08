@@ -1,0 +1,72 @@
+﻿<local:BezSortowaniaViewBase x:Class="LgSchool.View.WszystkieFakturyView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LgSchool.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Background="Azure">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label 
+                    Grid.Row="0" 
+                    Grid.Column="0" 
+                    Content="Numer:" />
+                <TextBox 
+                    Grid.Row="0" 
+                    Grid.Column="1"
+                    Text="{Binding Path=NumerFind, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label 
+                    Grid.Row="1" 
+                    Grid.Column="0" 
+                    Content="Data wystawienia od:" />
+                <DatePicker
+                    Grid.Column="1" 
+                    Grid.Row="1" 
+                    SelectedDate="{Binding Path=DataOdFind, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label 
+                    Grid.Row="1" 
+                    Grid.Column="2" 
+                    Content="Data wystawienia do:" />
+                <DatePicker
+                    Grid.Column="3" 
+                    Grid.Row="1" 
+                    SelectedDate="{Binding Path=DataDoFind, UpdateSourceTrigger=PropertyChanged}"/>
+                <Button 
+                    Grid.Row="2" 
+                    Grid.ColumnSpan="4" 
+                    Content="Szukaj"                                                              
+                    Command="{Binding FindDedicatedCommand}"/>
+
+            </Grid>
+        </StackPanel>
+        <DataGrid Grid.Row="1" AutoGenerateColumns="False" ItemsSource="{Binding List}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding FakturaID}"/>
+                <DataGridTextColumn Header="Numer" Binding="{Binding NumerFaktury}"/>
+                <DataGridTextColumn Header="Nazwa firmy" Binding="{Binding FirmaNazwa}"/>
+                <DataGridTextColumn Header="Data wystawienia" Binding="{Binding DataWystawienia}"/>
+                <DataGridTextColumn Header="Termin płatności" Binding="{Binding TerminPlatnosci}"/>
+                <DataGridTextColumn Header="Rodzaj płatności" Binding="{Binding RodzajPlatnosciNazwa}"/>
+                <DataGridTextColumn Header="Data wpłaty" Binding="{Binding DataWplaty}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</local:BezSortowaniaViewBase>

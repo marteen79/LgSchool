@@ -1,0 +1,1947 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LgSchoolModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Autor">
+          <Key>
+            <PropertyRef Name="autorID" />
+          </Key>
+          <Property Name="autorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kraj" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bonusy">
+          <Key>
+            <PropertyRef Name="bonusID" />
+          </Key>
+          <Property Name="bonusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bonus" Type="binary" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cennik">
+          <Key>
+            <PropertyRef Name="cennikID" />
+          </Key>
+          <Property Name="cennikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kursID" Type="int" Nullable="false" />
+          <Property Name="cena" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="opis" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Dostepnosc">
+          <Key>
+            <PropertyRef Name="dostepnoscID" />
+          </Key>
+          <Property Name="dostepnoscID" Type="int" Nullable="false" />
+          <Property Name="dostepnosc" Type="binary" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Faktura">
+          <Key>
+            <PropertyRef Name="fakturaID" />
+          </Key>
+          <Property Name="fakturaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numerFaktury" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dataWystawienia" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="dataWplaty" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="firmaID" Type="int" Nullable="false" />
+          <Property Name="rodzajPlatnosciID" Type="int" Nullable="false" />
+          <Property Name="terminPlatnosci" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Firma">
+          <Key>
+            <PropertyRef Name="firmaID" />
+          </Key>
+          <Property Name="firmaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="opis" Type="nvarchar" MaxLength="50" />
+          <Property Name="nip" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="regon" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefon1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefon2" Type="nvarchar" MaxLength="50" />
+          <Property Name="fax" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="osobaKontaktowa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="statusID" Type="int" />
+        </EntityType>
+        <EntityType Name="Gatunek">
+          <Key>
+            <PropertyRef Name="gatunekID" />
+          </Key>
+          <Property Name="gatunekID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Grupa">
+          <Key>
+            <PropertyRef Name="grupaID" />
+          </Key>
+          <Property Name="grupaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="grupaNumer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="opis" Type="nvarchar" MaxLength="50" />
+          <Property Name="uczenID" Type="int" />
+          <Property Name="poziomID" Type="int" Nullable="false" />
+          <Property Name="kursID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KategoriaOcen">
+          <Key>
+            <PropertyRef Name="kategoriaID" />
+          </Key>
+          <Property Name="kategoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="opis" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kurs">
+          <Key>
+            <PropertyRef Name="kursID" />
+          </Key>
+          <Property Name="kursID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="opis" Type="nvarchar" MaxLength="50" />
+          <Property Name="poziomID" Type="int" />
+          <Property Name="pracownikID" Type="int" />
+        </EntityType>
+        <EntityType Name="ListaDoGrup">
+          <Key>
+            <PropertyRef Name="listaID" />
+          </Key>
+          <Property Name="listaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="grupaID" Type="int" Nullable="false" />
+          <Property Name="uczenID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Materialy">
+          <Key>
+            <PropertyRef Name="materialID" />
+          </Key>
+          <Property Name="materialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typID" Type="int" Nullable="false" />
+          <Property Name="tytul" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="autorID" Type="int" Nullable="false" />
+          <Property Name="gatunekID" Type="int" Nullable="false" />
+          <Property Name="poziomID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ocena">
+          <Key>
+            <PropertyRef Name="ocenaID" />
+          </Key>
+          <Property Name="ocenaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="opis" Type="nvarchar" MaxLength="50" />
+          <Property Name="uczenID" Type="int" />
+        </EntityType>
+        <EntityType Name="OcenyUcznia">
+          <Key>
+            <PropertyRef Name="ocenyUczniaID" />
+          </Key>
+          <Property Name="ocenyUczniaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uczenID" Type="int" Nullable="false" />
+          <Property Name="ocenaID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Poziom">
+          <Key>
+            <PropertyRef Name="poziomID" />
+          </Key>
+          <Property Name="poziomID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PozycjeFaktury">
+          <Key>
+            <PropertyRef Name="pozycjeFakturyID" />
+          </Key>
+          <Property Name="pozycjeFakturyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fakturaID" Type="int" Nullable="false" />
+          <Property Name="uslugaID" Type="int" Nullable="false" />
+          <Property Name="cena" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ilosc" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="rabat" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="pracownikID" />
+          </Key>
+          <Property Name="pracownikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dataUrodzenia" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="pesel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ulica" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="numer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="kodPocztowy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="miejscowosc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefon" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="stanowiskoID" Type="int" Nullable="false" />
+          <Property Name="dataZatrudnienia" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="dataZwolnienia" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="RodzajPlatnosci">
+          <Key>
+            <PropertyRef Name="rodzajPlatnosciID" />
+          </Key>
+          <Property Name="rodzajPlatnosciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwaPlatnosci" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rozliczenie">
+          <Key>
+            <PropertyRef Name="rozliczenieID" />
+          </Key>
+          <Property Name="rozliczenieID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numerRozliczenia" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dataRozliczenia" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pracownikID" Type="int" Nullable="false" />
+          <Property Name="kursID" Type="int" Nullable="false" />
+          <Property Name="iloscGodzin" Type="int" Nullable="false" />
+          <Property Name="stawka" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="bonusID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stanowisko">
+          <Key>
+            <PropertyRef Name="stanowiskoID" />
+          </Key>
+          <Property Name="stanowiskoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwaStanowiska" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="statusID" />
+          </Key>
+          <Property Name="statusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="opis" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TypyMaterialow">
+          <Key>
+            <PropertyRef Name="typID" />
+          </Key>
+          <Property Name="typID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TytulWplaty">
+          <Key>
+            <PropertyRef Name="tytulWplatyID" />
+          </Key>
+          <Property Name="tytulWplatyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wplataID" Type="int" Nullable="false" />
+          <Property Name="kursID" Type="int" Nullable="false" />
+          <Property Name="cena" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="iloscGodzin" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uczen">
+          <Key>
+            <PropertyRef Name="uczenID" />
+          </Key>
+          <Property Name="uczenID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dataUrodzenia" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="pesel" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefon" Type="nvarchar" MaxLength="50" />
+          <Property Name="telefonOpiekuna" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="statusID" Type="int" Nullable="false" />
+          <Property Name="grupaID" Type="int" />
+          <Property Name="ocenaID" Type="int" />
+        </EntityType>
+        <EntityType Name="Usluga">
+          <Key>
+            <PropertyRef Name="uslugaID" />
+          </Key>
+          <Property Name="uslugaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="cena" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="stawkaVAT" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="opis" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Uzytkownik">
+          <Key>
+            <PropertyRef Name="uzytkownikID" />
+          </Key>
+          <Property Name="uzytkownikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="haslo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wplata">
+          <Key>
+            <PropertyRef Name="wplataID" />
+          </Key>
+          <Property Name="wplataID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numerWplaty" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="uczenID" Type="int" />
+          <Property Name="firmaID" Type="int" />
+          <Property Name="data" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="rodzajPlatnosciID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cennik_Kurs">
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="1" />
+          <End Role="Cennik" Type="Self.Cennik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurs">
+              <PropertyRef Name="kursID" />
+            </Principal>
+            <Dependent Role="Cennik">
+              <PropertyRef Name="kursID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktura_RodzajPlatnosci">
+          <End Role="RodzajPlatnosci" Type="Self.RodzajPlatnosci" Multiplicity="1" />
+          <End Role="Faktura" Type="Self.Faktura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajPlatnosci">
+              <PropertyRef Name="rodzajPlatnosciID" />
+            </Principal>
+            <Dependent Role="Faktura">
+              <PropertyRef Name="rodzajPlatnosciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Firma_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Firma" Type="Self.Firma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="Firma">
+              <PropertyRef Name="statusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupa_Kurs">
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="1" />
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurs">
+              <PropertyRef Name="kursID" />
+            </Principal>
+            <Dependent Role="Grupa">
+              <PropertyRef Name="kursID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupa_Poziom">
+          <End Role="Poziom" Type="Self.Poziom" Multiplicity="1" />
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poziom">
+              <PropertyRef Name="poziomID" />
+            </Principal>
+            <Dependent Role="Grupa">
+              <PropertyRef Name="poziomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupa_Uczen">
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="0..1" />
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uczen">
+              <PropertyRef Name="uczenID" />
+            </Principal>
+            <Dependent Role="Grupa">
+              <PropertyRef Name="uczenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kurs_Poziom">
+          <End Role="Poziom" Type="Self.Poziom" Multiplicity="0..1" />
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poziom">
+              <PropertyRef Name="poziomID" />
+            </Principal>
+            <Dependent Role="Kurs">
+              <PropertyRef Name="poziomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kurs_Pracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="pracownikID" />
+            </Principal>
+            <Dependent Role="Kurs">
+              <PropertyRef Name="pracownikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListaDoGrup_Grupa">
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="1" />
+          <End Role="ListaDoGrup" Type="Self.ListaDoGrup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupa">
+              <PropertyRef Name="grupaID" />
+            </Principal>
+            <Dependent Role="ListaDoGrup">
+              <PropertyRef Name="grupaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListaDoGrup_Uczen">
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="1" />
+          <End Role="ListaDoGrup" Type="Self.ListaDoGrup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uczen">
+              <PropertyRef Name="uczenID" />
+            </Principal>
+            <Dependent Role="ListaDoGrup">
+              <PropertyRef Name="uczenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materialy_Autor">
+          <End Role="Autor" Type="Self.Autor" Multiplicity="1" />
+          <End Role="Materialy" Type="Self.Materialy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Autor">
+              <PropertyRef Name="autorID" />
+            </Principal>
+            <Dependent Role="Materialy">
+              <PropertyRef Name="autorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materialy_Gatunek">
+          <End Role="Gatunek" Type="Self.Gatunek" Multiplicity="1" />
+          <End Role="Materialy" Type="Self.Materialy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gatunek">
+              <PropertyRef Name="gatunekID" />
+            </Principal>
+            <Dependent Role="Materialy">
+              <PropertyRef Name="gatunekID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materialy_Poziom">
+          <End Role="Poziom" Type="Self.Poziom" Multiplicity="1" />
+          <End Role="Materialy" Type="Self.Materialy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poziom">
+              <PropertyRef Name="poziomID" />
+            </Principal>
+            <Dependent Role="Materialy">
+              <PropertyRef Name="poziomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materialy_TypyMaterialow">
+          <End Role="TypyMaterialow" Type="Self.TypyMaterialow" Multiplicity="1" />
+          <End Role="Materialy" Type="Self.Materialy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypyMaterialow">
+              <PropertyRef Name="typID" />
+            </Principal>
+            <Dependent Role="Materialy">
+              <PropertyRef Name="typID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OcenyUcznia_Ocena">
+          <End Role="Ocena" Type="Self.Ocena" Multiplicity="1" />
+          <End Role="OcenyUcznia" Type="Self.OcenyUcznia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ocena">
+              <PropertyRef Name="ocenaID" />
+            </Principal>
+            <Dependent Role="OcenyUcznia">
+              <PropertyRef Name="ocenaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OcenyUcznia_Uczen">
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="1" />
+          <End Role="OcenyUcznia" Type="Self.OcenyUcznia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uczen">
+              <PropertyRef Name="uczenID" />
+            </Principal>
+            <Dependent Role="OcenyUcznia">
+              <PropertyRef Name="uczenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PozycjeFaktury_Faktura">
+          <End Role="Faktura" Type="Self.Faktura" Multiplicity="1" />
+          <End Role="PozycjeFaktury" Type="Self.PozycjeFaktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faktura">
+              <PropertyRef Name="fakturaID" />
+            </Principal>
+            <Dependent Role="PozycjeFaktury">
+              <PropertyRef Name="fakturaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PozycjeFaktury_Usluga">
+          <End Role="Usluga" Type="Self.Usluga" Multiplicity="1" />
+          <End Role="PozycjeFaktury" Type="Self.PozycjeFaktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usluga">
+              <PropertyRef Name="uslugaID" />
+            </Principal>
+            <Dependent Role="PozycjeFaktury">
+              <PropertyRef Name="uslugaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_Stanowisko">
+          <End Role="Stanowisko" Type="Self.Stanowisko" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stanowisko">
+              <PropertyRef Name="stanowiskoID" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="stanowiskoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rozliczenie_Bonusy">
+          <End Role="Bonusy" Type="Self.Bonusy" Multiplicity="1" />
+          <End Role="Rozliczenie" Type="Self.Rozliczenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bonusy">
+              <PropertyRef Name="bonusID" />
+            </Principal>
+            <Dependent Role="Rozliczenie">
+              <PropertyRef Name="bonusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rozliczenie_Kurs">
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="1" />
+          <End Role="Rozliczenie" Type="Self.Rozliczenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurs">
+              <PropertyRef Name="kursID" />
+            </Principal>
+            <Dependent Role="Rozliczenie">
+              <PropertyRef Name="kursID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rozliczenie_Pracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Rozliczenie" Type="Self.Rozliczenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="pracownikID" />
+            </Principal>
+            <Dependent Role="Rozliczenie">
+              <PropertyRef Name="pracownikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TytulWplaty_Kurs">
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="1" />
+          <End Role="TytulWplaty" Type="Self.TytulWplaty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurs">
+              <PropertyRef Name="kursID" />
+            </Principal>
+            <Dependent Role="TytulWplaty">
+              <PropertyRef Name="kursID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TytulWplaty_Wplata">
+          <End Role="Wplata" Type="Self.Wplata" Multiplicity="1" />
+          <End Role="TytulWplaty" Type="Self.TytulWplaty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wplata">
+              <PropertyRef Name="wplataID" />
+            </Principal>
+            <Dependent Role="TytulWplaty">
+              <PropertyRef Name="wplataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uczen_Ocena">
+          <End Role="Ocena" Type="Self.Ocena" Multiplicity="0..1" />
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ocena">
+              <PropertyRef Name="ocenaID" />
+            </Principal>
+            <Dependent Role="Uczen">
+              <PropertyRef Name="ocenaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uczen_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="Uczen">
+              <PropertyRef Name="statusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wplata_Firma">
+          <End Role="Firma" Type="Self.Firma" Multiplicity="0..1" />
+          <End Role="Wplata" Type="Self.Wplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firma">
+              <PropertyRef Name="firmaID" />
+            </Principal>
+            <Dependent Role="Wplata">
+              <PropertyRef Name="firmaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wplata_RodzajPlatnosci">
+          <End Role="RodzajPlatnosci" Type="Self.RodzajPlatnosci" Multiplicity="1" />
+          <End Role="Wplata" Type="Self.Wplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajPlatnosci">
+              <PropertyRef Name="rodzajPlatnosciID" />
+            </Principal>
+            <Dependent Role="Wplata">
+              <PropertyRef Name="rodzajPlatnosciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wplata_Uczen">
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="0..1" />
+          <End Role="Wplata" Type="Self.Wplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uczen">
+              <PropertyRef Name="uczenID" />
+            </Principal>
+            <Dependent Role="Wplata">
+              <PropertyRef Name="uczenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LgSchoolModelStoreContainer">
+          <EntitySet Name="Autor" EntityType="Self.Autor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bonusy" EntityType="Self.Bonusy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cennik" EntityType="Self.Cennik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dostepnosc" EntityType="Self.Dostepnosc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faktura" EntityType="Self.Faktura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Firma" EntityType="Self.Firma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gatunek" EntityType="Self.Gatunek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Grupa" EntityType="Self.Grupa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KategoriaOcen" EntityType="Self.KategoriaOcen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kurs" EntityType="Self.Kurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListaDoGrup" EntityType="Self.ListaDoGrup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Materialy" EntityType="Self.Materialy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ocena" EntityType="Self.Ocena" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OcenyUcznia" EntityType="Self.OcenyUcznia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Poziom" EntityType="Self.Poziom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PozycjeFaktury" EntityType="Self.PozycjeFaktury" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RodzajPlatnosci" EntityType="Self.RodzajPlatnosci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rozliczenie" EntityType="Self.Rozliczenie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stanowisko" EntityType="Self.Stanowisko" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypyMaterialow" EntityType="Self.TypyMaterialow" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TytulWplaty" EntityType="Self.TytulWplaty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uczen" EntityType="Self.Uczen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usluga" EntityType="Self.Usluga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uzytkownik" EntityType="Self.Uzytkownik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wplata" EntityType="Self.Wplata" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cennik_Kurs" Association="Self.FK_Cennik_Kurs">
+            <End Role="Kurs" EntitySet="Kurs" />
+            <End Role="Cennik" EntitySet="Cennik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktura_RodzajPlatnosci" Association="Self.FK_Faktura_RodzajPlatnosci">
+            <End Role="RodzajPlatnosci" EntitySet="RodzajPlatnosci" />
+            <End Role="Faktura" EntitySet="Faktura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Firma_Status" Association="Self.FK_Firma_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Firma" EntitySet="Firma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupa_Kurs" Association="Self.FK_Grupa_Kurs">
+            <End Role="Kurs" EntitySet="Kurs" />
+            <End Role="Grupa" EntitySet="Grupa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupa_Poziom" Association="Self.FK_Grupa_Poziom">
+            <End Role="Poziom" EntitySet="Poziom" />
+            <End Role="Grupa" EntitySet="Grupa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupa_Uczen" Association="Self.FK_Grupa_Uczen">
+            <End Role="Uczen" EntitySet="Uczen" />
+            <End Role="Grupa" EntitySet="Grupa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kurs_Poziom" Association="Self.FK_Kurs_Poziom">
+            <End Role="Poziom" EntitySet="Poziom" />
+            <End Role="Kurs" EntitySet="Kurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kurs_Pracownik" Association="Self.FK_Kurs_Pracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Kurs" EntitySet="Kurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListaDoGrup_Grupa" Association="Self.FK_ListaDoGrup_Grupa">
+            <End Role="Grupa" EntitySet="Grupa" />
+            <End Role="ListaDoGrup" EntitySet="ListaDoGrup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListaDoGrup_Uczen" Association="Self.FK_ListaDoGrup_Uczen">
+            <End Role="Uczen" EntitySet="Uczen" />
+            <End Role="ListaDoGrup" EntitySet="ListaDoGrup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materialy_Autor" Association="Self.FK_Materialy_Autor">
+            <End Role="Autor" EntitySet="Autor" />
+            <End Role="Materialy" EntitySet="Materialy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materialy_Gatunek" Association="Self.FK_Materialy_Gatunek">
+            <End Role="Gatunek" EntitySet="Gatunek" />
+            <End Role="Materialy" EntitySet="Materialy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materialy_Poziom" Association="Self.FK_Materialy_Poziom">
+            <End Role="Poziom" EntitySet="Poziom" />
+            <End Role="Materialy" EntitySet="Materialy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materialy_TypyMaterialow" Association="Self.FK_Materialy_TypyMaterialow">
+            <End Role="TypyMaterialow" EntitySet="TypyMaterialow" />
+            <End Role="Materialy" EntitySet="Materialy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OcenyUcznia_Ocena" Association="Self.FK_OcenyUcznia_Ocena">
+            <End Role="Ocena" EntitySet="Ocena" />
+            <End Role="OcenyUcznia" EntitySet="OcenyUcznia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OcenyUcznia_Uczen" Association="Self.FK_OcenyUcznia_Uczen">
+            <End Role="Uczen" EntitySet="Uczen" />
+            <End Role="OcenyUcznia" EntitySet="OcenyUcznia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PozycjeFaktury_Faktura" Association="Self.FK_PozycjeFaktury_Faktura">
+            <End Role="Faktura" EntitySet="Faktura" />
+            <End Role="PozycjeFaktury" EntitySet="PozycjeFaktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PozycjeFaktury_Usluga" Association="Self.FK_PozycjeFaktury_Usluga">
+            <End Role="Usluga" EntitySet="Usluga" />
+            <End Role="PozycjeFaktury" EntitySet="PozycjeFaktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_Stanowisko" Association="Self.FK_Pracownik_Stanowisko">
+            <End Role="Stanowisko" EntitySet="Stanowisko" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rozliczenie_Bonusy" Association="Self.FK_Rozliczenie_Bonusy">
+            <End Role="Bonusy" EntitySet="Bonusy" />
+            <End Role="Rozliczenie" EntitySet="Rozliczenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rozliczenie_Kurs" Association="Self.FK_Rozliczenie_Kurs">
+            <End Role="Kurs" EntitySet="Kurs" />
+            <End Role="Rozliczenie" EntitySet="Rozliczenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rozliczenie_Pracownik" Association="Self.FK_Rozliczenie_Pracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Rozliczenie" EntitySet="Rozliczenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TytulWplaty_Kurs" Association="Self.FK_TytulWplaty_Kurs">
+            <End Role="Kurs" EntitySet="Kurs" />
+            <End Role="TytulWplaty" EntitySet="TytulWplaty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TytulWplaty_Wplata" Association="Self.FK_TytulWplaty_Wplata">
+            <End Role="Wplata" EntitySet="Wplata" />
+            <End Role="TytulWplaty" EntitySet="TytulWplaty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uczen_Ocena" Association="Self.FK_Uczen_Ocena">
+            <End Role="Ocena" EntitySet="Ocena" />
+            <End Role="Uczen" EntitySet="Uczen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uczen_Status" Association="Self.FK_Uczen_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Uczen" EntitySet="Uczen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wplata_Firma" Association="Self.FK_Wplata_Firma">
+            <End Role="Firma" EntitySet="Firma" />
+            <End Role="Wplata" EntitySet="Wplata" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wplata_RodzajPlatnosci" Association="Self.FK_Wplata_RodzajPlatnosci">
+            <End Role="RodzajPlatnosci" EntitySet="RodzajPlatnosci" />
+            <End Role="Wplata" EntitySet="Wplata" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wplata_Uczen" Association="Self.FK_Wplata_Uczen">
+            <End Role="Uczen" EntitySet="Uczen" />
+            <End Role="Wplata" EntitySet="Wplata" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LgSchoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Autor">
+          <Key>
+            <PropertyRef Name="autorID" />
+          </Key>
+          <Property Name="autorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kraj" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Materialy" Relationship="Self.FK_Materialy_Autor" FromRole="Autor" ToRole="Materialy" />
+        </EntityType>
+        <EntityType Name="Bonusy">
+          <Key>
+            <PropertyRef Name="bonusID" />
+          </Key>
+          <Property Name="bonusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bonus" Type="Binary" MaxLength="50" FixedLength="true" Nullable="false" />
+          <NavigationProperty Name="Rozliczenie" Relationship="Self.FK_Rozliczenie_Bonusy" FromRole="Bonusy" ToRole="Rozliczenie" />
+        </EntityType>
+        <EntityType Name="Cennik">
+          <Key>
+            <PropertyRef Name="cennikID" />
+          </Key>
+          <Property Name="cennikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kursID" Type="Int32" Nullable="false" />
+          <Property Name="cena" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kurs" Relationship="Self.FK_Cennik_Kurs" FromRole="Cennik" ToRole="Kurs" />
+        </EntityType>
+        <EntityType Name="Dostepnosc">
+          <Key>
+            <PropertyRef Name="dostepnoscID" />
+          </Key>
+          <Property Name="dostepnoscID" Type="Int32" Nullable="false" />
+          <Property Name="dostepnosc1" Type="Binary" MaxLength="50" FixedLength="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Faktura">
+          <Key>
+            <PropertyRef Name="fakturaID" />
+          </Key>
+          <Property Name="fakturaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numerFaktury" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dataWystawienia" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="dataWplaty" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="firmaID" Type="Int32" Nullable="false" />
+          <Property Name="rodzajPlatnosciID" Type="Int32" Nullable="false" />
+          <Property Name="terminPlatnosci" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="RodzajPlatnosci" Relationship="Self.FK_Faktura_RodzajPlatnosci" FromRole="Faktura" ToRole="RodzajPlatnosci" />
+          <NavigationProperty Name="PozycjeFaktury" Relationship="Self.FK_PozycjeFaktury_Faktura" FromRole="Faktura" ToRole="PozycjeFaktury" />
+        </EntityType>
+        <EntityType Name="Firma">
+          <Key>
+            <PropertyRef Name="firmaID" />
+          </Key>
+          <Property Name="firmaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nip" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="regon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefon1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefon2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="osobaKontaktowa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="statusID" Type="Int32" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Firma_Status" FromRole="Firma" ToRole="Status" />
+          <NavigationProperty Name="Wplata" Relationship="Self.FK_Wplata_Firma" FromRole="Firma" ToRole="Wplata" />
+        </EntityType>
+        <EntityType Name="Gatunek">
+          <Key>
+            <PropertyRef Name="gatunekID" />
+          </Key>
+          <Property Name="gatunekID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Materialy" Relationship="Self.FK_Materialy_Gatunek" FromRole="Gatunek" ToRole="Materialy" />
+        </EntityType>
+        <EntityType Name="Grupa">
+          <Key>
+            <PropertyRef Name="grupaID" />
+          </Key>
+          <Property Name="grupaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grupaNumer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="uczenID" Type="Int32" />
+          <Property Name="poziomID" Type="Int32" Nullable="false" />
+          <Property Name="kursID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kurs" Relationship="Self.FK_Grupa_Kurs" FromRole="Grupa" ToRole="Kurs" />
+          <NavigationProperty Name="Poziom" Relationship="Self.FK_Grupa_Poziom" FromRole="Grupa" ToRole="Poziom" />
+          <NavigationProperty Name="Uczen" Relationship="Self.FK_Grupa_Uczen" FromRole="Grupa" ToRole="Uczen" />
+          <NavigationProperty Name="ListaDoGrup" Relationship="Self.FK_ListaDoGrup_Grupa" FromRole="Grupa" ToRole="ListaDoGrup" />
+        </EntityType>
+        <EntityType Name="KategoriaOcen">
+          <Key>
+            <PropertyRef Name="kategoriaID" />
+          </Key>
+          <Property Name="kategoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kurs">
+          <Key>
+            <PropertyRef Name="kursID" />
+          </Key>
+          <Property Name="kursID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="poziomID" Type="Int32" />
+          <Property Name="pracownikID" Type="Int32" />
+          <NavigationProperty Name="Cennik" Relationship="Self.FK_Cennik_Kurs" FromRole="Kurs" ToRole="Cennik" />
+          <NavigationProperty Name="Grupa" Relationship="Self.FK_Grupa_Kurs" FromRole="Kurs" ToRole="Grupa" />
+          <NavigationProperty Name="Poziom" Relationship="Self.FK_Kurs_Poziom" FromRole="Kurs" ToRole="Poziom" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Kurs_Pracownik" FromRole="Kurs" ToRole="Pracownik" />
+          <NavigationProperty Name="Rozliczenie" Relationship="Self.FK_Rozliczenie_Kurs" FromRole="Kurs" ToRole="Rozliczenie" />
+          <NavigationProperty Name="TytulWplaty" Relationship="Self.FK_TytulWplaty_Kurs" FromRole="Kurs" ToRole="TytulWplaty" />
+        </EntityType>
+        <EntityType Name="ListaDoGrup">
+          <Key>
+            <PropertyRef Name="listaID" />
+          </Key>
+          <Property Name="listaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grupaID" Type="Int32" Nullable="false" />
+          <Property Name="uczenID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Grupa" Relationship="Self.FK_ListaDoGrup_Grupa" FromRole="ListaDoGrup" ToRole="Grupa" />
+          <NavigationProperty Name="Uczen" Relationship="Self.FK_ListaDoGrup_Uczen" FromRole="ListaDoGrup" ToRole="Uczen" />
+        </EntityType>
+        <EntityType Name="Materialy">
+          <Key>
+            <PropertyRef Name="materialID" />
+          </Key>
+          <Property Name="materialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typID" Type="Int32" Nullable="false" />
+          <Property Name="tytul" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="autorID" Type="Int32" Nullable="false" />
+          <Property Name="gatunekID" Type="Int32" Nullable="false" />
+          <Property Name="poziomID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Autor" Relationship="Self.FK_Materialy_Autor" FromRole="Materialy" ToRole="Autor" />
+          <NavigationProperty Name="Gatunek" Relationship="Self.FK_Materialy_Gatunek" FromRole="Materialy" ToRole="Gatunek" />
+          <NavigationProperty Name="Poziom" Relationship="Self.FK_Materialy_Poziom" FromRole="Materialy" ToRole="Poziom" />
+          <NavigationProperty Name="TypyMaterialow" Relationship="Self.FK_Materialy_TypyMaterialow" FromRole="Materialy" ToRole="TypyMaterialow" />
+        </EntityType>
+        <EntityType Name="Ocena">
+          <Key>
+            <PropertyRef Name="ocenaID" />
+          </Key>
+          <Property Name="ocenaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="uczenID" Type="Int32" />
+          <NavigationProperty Name="OcenyUcznia" Relationship="Self.FK_OcenyUcznia_Ocena" FromRole="Ocena" ToRole="OcenyUcznia" />
+          <NavigationProperty Name="Uczen" Relationship="Self.FK_Uczen_Ocena" FromRole="Ocena" ToRole="Uczen" />
+        </EntityType>
+        <EntityType Name="OcenyUcznia">
+          <Key>
+            <PropertyRef Name="ocenyUczniaID" />
+          </Key>
+          <Property Name="ocenyUczniaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uczenID" Type="Int32" Nullable="false" />
+          <Property Name="ocenaID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ocena" Relationship="Self.FK_OcenyUcznia_Ocena" FromRole="OcenyUcznia" ToRole="Ocena" />
+          <NavigationProperty Name="Uczen" Relationship="Self.FK_OcenyUcznia_Uczen" FromRole="OcenyUcznia" ToRole="Uczen" />
+        </EntityType>
+        <EntityType Name="Poziom">
+          <Key>
+            <PropertyRef Name="poziomID" />
+          </Key>
+          <Property Name="poziomID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Grupa" Relationship="Self.FK_Grupa_Poziom" FromRole="Poziom" ToRole="Grupa" />
+          <NavigationProperty Name="Kurs" Relationship="Self.FK_Kurs_Poziom" FromRole="Poziom" ToRole="Kurs" />
+          <NavigationProperty Name="Materialy" Relationship="Self.FK_Materialy_Poziom" FromRole="Poziom" ToRole="Materialy" />
+        </EntityType>
+        <EntityType Name="PozycjeFaktury">
+          <Key>
+            <PropertyRef Name="pozycjeFakturyID" />
+          </Key>
+          <Property Name="pozycjeFakturyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fakturaID" Type="Int32" Nullable="false" />
+          <Property Name="uslugaID" Type="Int32" Nullable="false" />
+          <Property Name="cena" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ilosc" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="rabat" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <NavigationProperty Name="Faktura" Relationship="Self.FK_PozycjeFaktury_Faktura" FromRole="PozycjeFaktury" ToRole="Faktura" />
+          <NavigationProperty Name="Usluga" Relationship="Self.FK_PozycjeFaktury_Usluga" FromRole="PozycjeFaktury" ToRole="Usluga" />
+        </EntityType>
+        <EntityType Name="Pracownik">
+          <Key>
+            <PropertyRef Name="pracownikID" />
+          </Key>
+          <Property Name="pracownikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dataUrodzenia" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="pesel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="numer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="kodPocztowy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="miejscowosc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="stanowiskoID" Type="Int32" Nullable="false" />
+          <Property Name="dataZatrudnienia" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="dataZwolnienia" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Kurs" Relationship="Self.FK_Kurs_Pracownik" FromRole="Pracownik" ToRole="Kurs" />
+          <NavigationProperty Name="Stanowisko" Relationship="Self.FK_Pracownik_Stanowisko" FromRole="Pracownik" ToRole="Stanowisko" />
+          <NavigationProperty Name="Rozliczenie" Relationship="Self.FK_Rozliczenie_Pracownik" FromRole="Pracownik" ToRole="Rozliczenie" />
+        </EntityType>
+        <EntityType Name="RodzajPlatnosci">
+          <Key>
+            <PropertyRef Name="rodzajPlatnosciID" />
+          </Key>
+          <Property Name="rodzajPlatnosciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwaPlatnosci" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Faktura" Relationship="Self.FK_Faktura_RodzajPlatnosci" FromRole="RodzajPlatnosci" ToRole="Faktura" />
+          <NavigationProperty Name="Wplata" Relationship="Self.FK_Wplata_RodzajPlatnosci" FromRole="RodzajPlatnosci" ToRole="Wplata" />
+        </EntityType>
+        <EntityType Name="Rozliczenie">
+          <Key>
+            <PropertyRef Name="rozliczenieID" />
+          </Key>
+          <Property Name="rozliczenieID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numerRozliczenia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dataRozliczenia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="pracownikID" Type="Int32" Nullable="false" />
+          <Property Name="kursID" Type="Int32" Nullable="false" />
+          <Property Name="iloscGodzin" Type="Int32" Nullable="false" />
+          <Property Name="stawka" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="bonusID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bonusy" Relationship="Self.FK_Rozliczenie_Bonusy" FromRole="Rozliczenie" ToRole="Bonusy" />
+          <NavigationProperty Name="Kurs" Relationship="Self.FK_Rozliczenie_Kurs" FromRole="Rozliczenie" ToRole="Kurs" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Rozliczenie_Pracownik" FromRole="Rozliczenie" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="Stanowisko">
+          <Key>
+            <PropertyRef Name="stanowiskoID" />
+          </Key>
+          <Property Name="stanowiskoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwaStanowiska" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Pracownik" Relationship="Self.FK_Pracownik_Stanowisko" FromRole="Stanowisko" ToRole="Pracownik" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="statusID" />
+          </Key>
+          <Property Name="statusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Firma" Relationship="Self.FK_Firma_Status" FromRole="Status" ToRole="Firma" />
+          <NavigationProperty Name="Uczen" Relationship="Self.FK_Uczen_Status" FromRole="Status" ToRole="Uczen" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TypyMaterialow">
+          <Key>
+            <PropertyRef Name="typID" />
+          </Key>
+          <Property Name="typID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Materialy" Relationship="Self.FK_Materialy_TypyMaterialow" FromRole="TypyMaterialow" ToRole="Materialy" />
+        </EntityType>
+        <EntityType Name="TytulWplaty">
+          <Key>
+            <PropertyRef Name="tytulWplatyID" />
+          </Key>
+          <Property Name="tytulWplatyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wplataID" Type="Int32" Nullable="false" />
+          <Property Name="kursID" Type="Int32" Nullable="false" />
+          <Property Name="cena" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="iloscGodzin" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kurs" Relationship="Self.FK_TytulWplaty_Kurs" FromRole="TytulWplaty" ToRole="Kurs" />
+          <NavigationProperty Name="Wplata" Relationship="Self.FK_TytulWplaty_Wplata" FromRole="TytulWplaty" ToRole="Wplata" />
+        </EntityType>
+        <EntityType Name="Uczen">
+          <Key>
+            <PropertyRef Name="uczenID" />
+          </Key>
+          <Property Name="uczenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dataUrodzenia" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="pesel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="telefonOpiekuna" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="statusID" Type="Int32" Nullable="false" />
+          <Property Name="grupaID" Type="Int32" />
+          <Property Name="ocenaID" Type="Int32" />
+          <NavigationProperty Name="Grupa" Relationship="Self.FK_Grupa_Uczen" FromRole="Uczen" ToRole="Grupa" />
+          <NavigationProperty Name="ListaDoGrup" Relationship="Self.FK_ListaDoGrup_Uczen" FromRole="Uczen" ToRole="ListaDoGrup" />
+          <NavigationProperty Name="Ocena" Relationship="Self.FK_Uczen_Ocena" FromRole="Uczen" ToRole="Ocena" />
+          <NavigationProperty Name="OcenyUcznia" Relationship="Self.FK_OcenyUcznia_Uczen" FromRole="Uczen" ToRole="OcenyUcznia" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Uczen_Status" FromRole="Uczen" ToRole="Status" />
+          <NavigationProperty Name="Wplata" Relationship="Self.FK_Wplata_Uczen" FromRole="Uczen" ToRole="Wplata" />
+        </EntityType>
+        <EntityType Name="Usluga">
+          <Key>
+            <PropertyRef Name="uslugaID" />
+          </Key>
+          <Property Name="uslugaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cena" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="stawkaVAT" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="opis" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PozycjeFaktury" Relationship="Self.FK_PozycjeFaktury_Usluga" FromRole="Usluga" ToRole="PozycjeFaktury" />
+        </EntityType>
+        <EntityType Name="Uzytkownik">
+          <Key>
+            <PropertyRef Name="uzytkownikID" />
+          </Key>
+          <Property Name="uzytkownikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="haslo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wplata">
+          <Key>
+            <PropertyRef Name="wplataID" />
+          </Key>
+          <Property Name="wplataID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="numerWplaty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="uczenID" Type="Int32" />
+          <Property Name="firmaID" Type="Int32" />
+          <Property Name="data" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="rodzajPlatnosciID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Firma" Relationship="Self.FK_Wplata_Firma" FromRole="Wplata" ToRole="Firma" />
+          <NavigationProperty Name="RodzajPlatnosci" Relationship="Self.FK_Wplata_RodzajPlatnosci" FromRole="Wplata" ToRole="RodzajPlatnosci" />
+          <NavigationProperty Name="TytulWplaty" Relationship="Self.FK_TytulWplaty_Wplata" FromRole="Wplata" ToRole="TytulWplaty" />
+          <NavigationProperty Name="Uczen" Relationship="Self.FK_Wplata_Uczen" FromRole="Wplata" ToRole="Uczen" />
+        </EntityType>
+        <Association Name="FK_Materialy_Autor">
+          <End Role="Autor" Type="Self.Autor" Multiplicity="1" />
+          <End Role="Materialy" Type="Self.Materialy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Autor">
+              <PropertyRef Name="autorID" />
+            </Principal>
+            <Dependent Role="Materialy">
+              <PropertyRef Name="autorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rozliczenie_Bonusy">
+          <End Role="Bonusy" Type="Self.Bonusy" Multiplicity="1" />
+          <End Role="Rozliczenie" Type="Self.Rozliczenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bonusy">
+              <PropertyRef Name="bonusID" />
+            </Principal>
+            <Dependent Role="Rozliczenie">
+              <PropertyRef Name="bonusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cennik_Kurs">
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="1" />
+          <End Role="Cennik" Type="Self.Cennik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurs">
+              <PropertyRef Name="kursID" />
+            </Principal>
+            <Dependent Role="Cennik">
+              <PropertyRef Name="kursID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Faktura_RodzajPlatnosci">
+          <End Role="RodzajPlatnosci" Type="Self.RodzajPlatnosci" Multiplicity="1" />
+          <End Role="Faktura" Type="Self.Faktura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajPlatnosci">
+              <PropertyRef Name="rodzajPlatnosciID" />
+            </Principal>
+            <Dependent Role="Faktura">
+              <PropertyRef Name="rodzajPlatnosciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PozycjeFaktury_Faktura">
+          <End Role="Faktura" Type="Self.Faktura" Multiplicity="1" />
+          <End Role="PozycjeFaktury" Type="Self.PozycjeFaktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faktura">
+              <PropertyRef Name="fakturaID" />
+            </Principal>
+            <Dependent Role="PozycjeFaktury">
+              <PropertyRef Name="fakturaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Firma_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Firma" Type="Self.Firma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="Firma">
+              <PropertyRef Name="statusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wplata_Firma">
+          <End Role="Firma" Type="Self.Firma" Multiplicity="0..1" />
+          <End Role="Wplata" Type="Self.Wplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firma">
+              <PropertyRef Name="firmaID" />
+            </Principal>
+            <Dependent Role="Wplata">
+              <PropertyRef Name="firmaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materialy_Gatunek">
+          <End Role="Gatunek" Type="Self.Gatunek" Multiplicity="1" />
+          <End Role="Materialy" Type="Self.Materialy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gatunek">
+              <PropertyRef Name="gatunekID" />
+            </Principal>
+            <Dependent Role="Materialy">
+              <PropertyRef Name="gatunekID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupa_Kurs">
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="1" />
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurs">
+              <PropertyRef Name="kursID" />
+            </Principal>
+            <Dependent Role="Grupa">
+              <PropertyRef Name="kursID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupa_Poziom">
+          <End Role="Poziom" Type="Self.Poziom" Multiplicity="1" />
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poziom">
+              <PropertyRef Name="poziomID" />
+            </Principal>
+            <Dependent Role="Grupa">
+              <PropertyRef Name="poziomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Grupa_Uczen">
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="0..1" />
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uczen">
+              <PropertyRef Name="uczenID" />
+            </Principal>
+            <Dependent Role="Grupa">
+              <PropertyRef Name="uczenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListaDoGrup_Grupa">
+          <End Role="Grupa" Type="Self.Grupa" Multiplicity="1" />
+          <End Role="ListaDoGrup" Type="Self.ListaDoGrup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Grupa">
+              <PropertyRef Name="grupaID" />
+            </Principal>
+            <Dependent Role="ListaDoGrup">
+              <PropertyRef Name="grupaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kurs_Poziom">
+          <End Role="Poziom" Type="Self.Poziom" Multiplicity="0..1" />
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poziom">
+              <PropertyRef Name="poziomID" />
+            </Principal>
+            <Dependent Role="Kurs">
+              <PropertyRef Name="poziomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kurs_Pracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="pracownikID" />
+            </Principal>
+            <Dependent Role="Kurs">
+              <PropertyRef Name="pracownikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rozliczenie_Kurs">
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="1" />
+          <End Role="Rozliczenie" Type="Self.Rozliczenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurs">
+              <PropertyRef Name="kursID" />
+            </Principal>
+            <Dependent Role="Rozliczenie">
+              <PropertyRef Name="kursID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TytulWplaty_Kurs">
+          <End Role="Kurs" Type="Self.Kurs" Multiplicity="1" />
+          <End Role="TytulWplaty" Type="Self.TytulWplaty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kurs">
+              <PropertyRef Name="kursID" />
+            </Principal>
+            <Dependent Role="TytulWplaty">
+              <PropertyRef Name="kursID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListaDoGrup_Uczen">
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="1" />
+          <End Role="ListaDoGrup" Type="Self.ListaDoGrup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uczen">
+              <PropertyRef Name="uczenID" />
+            </Principal>
+            <Dependent Role="ListaDoGrup">
+              <PropertyRef Name="uczenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materialy_Poziom">
+          <End Role="Poziom" Type="Self.Poziom" Multiplicity="1" />
+          <End Role="Materialy" Type="Self.Materialy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Poziom">
+              <PropertyRef Name="poziomID" />
+            </Principal>
+            <Dependent Role="Materialy">
+              <PropertyRef Name="poziomID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Materialy_TypyMaterialow">
+          <End Role="TypyMaterialow" Type="Self.TypyMaterialow" Multiplicity="1" />
+          <End Role="Materialy" Type="Self.Materialy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypyMaterialow">
+              <PropertyRef Name="typID" />
+            </Principal>
+            <Dependent Role="Materialy">
+              <PropertyRef Name="typID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OcenyUcznia_Ocena">
+          <End Role="Ocena" Type="Self.Ocena" Multiplicity="1" />
+          <End Role="OcenyUcznia" Type="Self.OcenyUcznia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ocena">
+              <PropertyRef Name="ocenaID" />
+            </Principal>
+            <Dependent Role="OcenyUcznia">
+              <PropertyRef Name="ocenaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uczen_Ocena">
+          <End Role="Ocena" Type="Self.Ocena" Multiplicity="0..1" />
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ocena">
+              <PropertyRef Name="ocenaID" />
+            </Principal>
+            <Dependent Role="Uczen">
+              <PropertyRef Name="ocenaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OcenyUcznia_Uczen">
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="1" />
+          <End Role="OcenyUcznia" Type="Self.OcenyUcznia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uczen">
+              <PropertyRef Name="uczenID" />
+            </Principal>
+            <Dependent Role="OcenyUcznia">
+              <PropertyRef Name="uczenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PozycjeFaktury_Usluga">
+          <End Role="Usluga" Type="Self.Usluga" Multiplicity="1" />
+          <End Role="PozycjeFaktury" Type="Self.PozycjeFaktury" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usluga">
+              <PropertyRef Name="uslugaID" />
+            </Principal>
+            <Dependent Role="PozycjeFaktury">
+              <PropertyRef Name="uslugaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pracownik_Stanowisko">
+          <End Role="Stanowisko" Type="Self.Stanowisko" Multiplicity="1" />
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stanowisko">
+              <PropertyRef Name="stanowiskoID" />
+            </Principal>
+            <Dependent Role="Pracownik">
+              <PropertyRef Name="stanowiskoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rozliczenie_Pracownik">
+          <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+          <End Role="Rozliczenie" Type="Self.Rozliczenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pracownik">
+              <PropertyRef Name="pracownikID" />
+            </Principal>
+            <Dependent Role="Rozliczenie">
+              <PropertyRef Name="pracownikID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wplata_RodzajPlatnosci">
+          <End Role="RodzajPlatnosci" Type="Self.RodzajPlatnosci" Multiplicity="1" />
+          <End Role="Wplata" Type="Self.Wplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RodzajPlatnosci">
+              <PropertyRef Name="rodzajPlatnosciID" />
+            </Principal>
+            <Dependent Role="Wplata">
+              <PropertyRef Name="rodzajPlatnosciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uczen_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusID" />
+            </Principal>
+            <Dependent Role="Uczen">
+              <PropertyRef Name="statusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TytulWplaty_Wplata">
+          <End Role="Wplata" Type="Self.Wplata" Multiplicity="1" />
+          <End Role="TytulWplaty" Type="Self.TytulWplaty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wplata">
+              <PropertyRef Name="wplataID" />
+            </Principal>
+            <Dependent Role="TytulWplaty">
+              <PropertyRef Name="wplataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Wplata_Uczen">
+          <End Role="Uczen" Type="Self.Uczen" Multiplicity="0..1" />
+          <End Role="Wplata" Type="Self.Wplata" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uczen">
+              <PropertyRef Name="uczenID" />
+            </Principal>
+            <Dependent Role="Wplata">
+              <PropertyRef Name="uczenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LgSchoolEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Autor" EntityType="Self.Autor" />
+          <EntitySet Name="Bonusy" EntityType="Self.Bonusy" />
+          <EntitySet Name="Cennik" EntityType="Self.Cennik" />
+          <EntitySet Name="Dostepnosc" EntityType="Self.Dostepnosc" />
+          <EntitySet Name="Faktura" EntityType="Self.Faktura" />
+          <EntitySet Name="Firma" EntityType="Self.Firma" />
+          <EntitySet Name="Gatunek" EntityType="Self.Gatunek" />
+          <EntitySet Name="Grupa" EntityType="Self.Grupa" />
+          <EntitySet Name="KategoriaOcen" EntityType="Self.KategoriaOcen" />
+          <EntitySet Name="Kurs" EntityType="Self.Kurs" />
+          <EntitySet Name="ListaDoGrup" EntityType="Self.ListaDoGrup" />
+          <EntitySet Name="Materialy" EntityType="Self.Materialy" />
+          <EntitySet Name="Ocena" EntityType="Self.Ocena" />
+          <EntitySet Name="OcenyUcznia" EntityType="Self.OcenyUcznia" />
+          <EntitySet Name="Poziom" EntityType="Self.Poziom" />
+          <EntitySet Name="PozycjeFaktury" EntityType="Self.PozycjeFaktury" />
+          <EntitySet Name="Pracownik" EntityType="Self.Pracownik" />
+          <EntitySet Name="RodzajPlatnosci" EntityType="Self.RodzajPlatnosci" />
+          <EntitySet Name="Rozliczenie" EntityType="Self.Rozliczenie" />
+          <EntitySet Name="Stanowisko" EntityType="Self.Stanowisko" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TypyMaterialow" EntityType="Self.TypyMaterialow" />
+          <EntitySet Name="TytulWplaty" EntityType="Self.TytulWplaty" />
+          <EntitySet Name="Uczen" EntityType="Self.Uczen" />
+          <EntitySet Name="Usluga" EntityType="Self.Usluga" />
+          <EntitySet Name="Uzytkownik" EntityType="Self.Uzytkownik" />
+          <EntitySet Name="Wplata" EntityType="Self.Wplata" />
+          <AssociationSet Name="FK_Materialy_Autor" Association="Self.FK_Materialy_Autor">
+            <End Role="Autor" EntitySet="Autor" />
+            <End Role="Materialy" EntitySet="Materialy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rozliczenie_Bonusy" Association="Self.FK_Rozliczenie_Bonusy">
+            <End Role="Bonusy" EntitySet="Bonusy" />
+            <End Role="Rozliczenie" EntitySet="Rozliczenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cennik_Kurs" Association="Self.FK_Cennik_Kurs">
+            <End Role="Kurs" EntitySet="Kurs" />
+            <End Role="Cennik" EntitySet="Cennik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Faktura_RodzajPlatnosci" Association="Self.FK_Faktura_RodzajPlatnosci">
+            <End Role="RodzajPlatnosci" EntitySet="RodzajPlatnosci" />
+            <End Role="Faktura" EntitySet="Faktura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PozycjeFaktury_Faktura" Association="Self.FK_PozycjeFaktury_Faktura">
+            <End Role="Faktura" EntitySet="Faktura" />
+            <End Role="PozycjeFaktury" EntitySet="PozycjeFaktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Firma_Status" Association="Self.FK_Firma_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Firma" EntitySet="Firma" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wplata_Firma" Association="Self.FK_Wplata_Firma">
+            <End Role="Firma" EntitySet="Firma" />
+            <End Role="Wplata" EntitySet="Wplata" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materialy_Gatunek" Association="Self.FK_Materialy_Gatunek">
+            <End Role="Gatunek" EntitySet="Gatunek" />
+            <End Role="Materialy" EntitySet="Materialy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupa_Kurs" Association="Self.FK_Grupa_Kurs">
+            <End Role="Kurs" EntitySet="Kurs" />
+            <End Role="Grupa" EntitySet="Grupa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupa_Poziom" Association="Self.FK_Grupa_Poziom">
+            <End Role="Poziom" EntitySet="Poziom" />
+            <End Role="Grupa" EntitySet="Grupa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Grupa_Uczen" Association="Self.FK_Grupa_Uczen">
+            <End Role="Uczen" EntitySet="Uczen" />
+            <End Role="Grupa" EntitySet="Grupa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListaDoGrup_Grupa" Association="Self.FK_ListaDoGrup_Grupa">
+            <End Role="Grupa" EntitySet="Grupa" />
+            <End Role="ListaDoGrup" EntitySet="ListaDoGrup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kurs_Poziom" Association="Self.FK_Kurs_Poziom">
+            <End Role="Poziom" EntitySet="Poziom" />
+            <End Role="Kurs" EntitySet="Kurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kurs_Pracownik" Association="Self.FK_Kurs_Pracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Kurs" EntitySet="Kurs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rozliczenie_Kurs" Association="Self.FK_Rozliczenie_Kurs">
+            <End Role="Kurs" EntitySet="Kurs" />
+            <End Role="Rozliczenie" EntitySet="Rozliczenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TytulWplaty_Kurs" Association="Self.FK_TytulWplaty_Kurs">
+            <End Role="Kurs" EntitySet="Kurs" />
+            <End Role="TytulWplaty" EntitySet="TytulWplaty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListaDoGrup_Uczen" Association="Self.FK_ListaDoGrup_Uczen">
+            <End Role="Uczen" EntitySet="Uczen" />
+            <End Role="ListaDoGrup" EntitySet="ListaDoGrup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materialy_Poziom" Association="Self.FK_Materialy_Poziom">
+            <End Role="Poziom" EntitySet="Poziom" />
+            <End Role="Materialy" EntitySet="Materialy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Materialy_TypyMaterialow" Association="Self.FK_Materialy_TypyMaterialow">
+            <End Role="TypyMaterialow" EntitySet="TypyMaterialow" />
+            <End Role="Materialy" EntitySet="Materialy" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OcenyUcznia_Ocena" Association="Self.FK_OcenyUcznia_Ocena">
+            <End Role="Ocena" EntitySet="Ocena" />
+            <End Role="OcenyUcznia" EntitySet="OcenyUcznia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uczen_Ocena" Association="Self.FK_Uczen_Ocena">
+            <End Role="Ocena" EntitySet="Ocena" />
+            <End Role="Uczen" EntitySet="Uczen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OcenyUcznia_Uczen" Association="Self.FK_OcenyUcznia_Uczen">
+            <End Role="Uczen" EntitySet="Uczen" />
+            <End Role="OcenyUcznia" EntitySet="OcenyUcznia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PozycjeFaktury_Usluga" Association="Self.FK_PozycjeFaktury_Usluga">
+            <End Role="Usluga" EntitySet="Usluga" />
+            <End Role="PozycjeFaktury" EntitySet="PozycjeFaktury" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Pracownik_Stanowisko" Association="Self.FK_Pracownik_Stanowisko">
+            <End Role="Stanowisko" EntitySet="Stanowisko" />
+            <End Role="Pracownik" EntitySet="Pracownik" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rozliczenie_Pracownik" Association="Self.FK_Rozliczenie_Pracownik">
+            <End Role="Pracownik" EntitySet="Pracownik" />
+            <End Role="Rozliczenie" EntitySet="Rozliczenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wplata_RodzajPlatnosci" Association="Self.FK_Wplata_RodzajPlatnosci">
+            <End Role="RodzajPlatnosci" EntitySet="RodzajPlatnosci" />
+            <End Role="Wplata" EntitySet="Wplata" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uczen_Status" Association="Self.FK_Uczen_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Uczen" EntitySet="Uczen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TytulWplaty_Wplata" Association="Self.FK_TytulWplaty_Wplata">
+            <End Role="Wplata" EntitySet="Wplata" />
+            <End Role="TytulWplaty" EntitySet="TytulWplaty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Wplata_Uczen" Association="Self.FK_Wplata_Uczen">
+            <End Role="Uczen" EntitySet="Uczen" />
+            <End Role="Wplata" EntitySet="Wplata" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LgSchoolModelStoreContainer" CdmEntityContainer="LgSchoolEntities">
+          <EntitySetMapping Name="Autor">
+            <EntityTypeMapping TypeName="LgSchoolModel.Autor">
+              <MappingFragment StoreEntitySet="Autor">
+                <ScalarProperty Name="autorID" ColumnName="autorID" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bonusy">
+            <EntityTypeMapping TypeName="LgSchoolModel.Bonusy">
+              <MappingFragment StoreEntitySet="Bonusy">
+                <ScalarProperty Name="bonusID" ColumnName="bonusID" />
+                <ScalarProperty Name="bonus" ColumnName="bonus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cennik">
+            <EntityTypeMapping TypeName="LgSchoolModel.Cennik">
+              <MappingFragment StoreEntitySet="Cennik">
+                <ScalarProperty Name="cennikID" ColumnName="cennikID" />
+                <ScalarProperty Name="kursID" ColumnName="kursID" />
+                <ScalarProperty Name="cena" ColumnName="cena" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dostepnosc">
+            <EntityTypeMapping TypeName="LgSchoolModel.Dostepnosc">
+              <MappingFragment StoreEntitySet="Dostepnosc">
+                <ScalarProperty Name="dostepnoscID" ColumnName="dostepnoscID" />
+                <ScalarProperty Name="dostepnosc1" ColumnName="dostepnosc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faktura">
+            <EntityTypeMapping TypeName="LgSchoolModel.Faktura">
+              <MappingFragment StoreEntitySet="Faktura">
+                <ScalarProperty Name="fakturaID" ColumnName="fakturaID" />
+                <ScalarProperty Name="numerFaktury" ColumnName="numerFaktury" />
+                <ScalarProperty Name="dataWystawienia" ColumnName="dataWystawienia" />
+                <ScalarProperty Name="dataWplaty" ColumnName="dataWplaty" />
+                <ScalarProperty Name="firmaID" ColumnName="firmaID" />
+                <ScalarProperty Name="rodzajPlatnosciID" ColumnName="rodzajPlatnosciID" />
+                <ScalarProperty Name="terminPlatnosci" ColumnName="terminPlatnosci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Firma">
+            <EntityTypeMapping TypeName="LgSchoolModel.Firma">
+              <MappingFragment StoreEntitySet="Firma">
+                <ScalarProperty Name="firmaID" ColumnName="firmaID" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="nip" ColumnName="nip" />
+                <ScalarProperty Name="regon" ColumnName="regon" />
+                <ScalarProperty Name="telefon1" ColumnName="telefon1" />
+                <ScalarProperty Name="telefon2" ColumnName="telefon2" />
+                <ScalarProperty Name="fax" ColumnName="fax" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="osobaKontaktowa" ColumnName="osobaKontaktowa" />
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gatunek">
+            <EntityTypeMapping TypeName="LgSchoolModel.Gatunek">
+              <MappingFragment StoreEntitySet="Gatunek">
+                <ScalarProperty Name="gatunekID" ColumnName="gatunekID" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Grupa">
+            <EntityTypeMapping TypeName="LgSchoolModel.Grupa">
+              <MappingFragment StoreEntitySet="Grupa">
+                <ScalarProperty Name="grupaID" ColumnName="grupaID" />
+                <ScalarProperty Name="grupaNumer" ColumnName="grupaNumer" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="uczenID" ColumnName="uczenID" />
+                <ScalarProperty Name="poziomID" ColumnName="poziomID" />
+                <ScalarProperty Name="kursID" ColumnName="kursID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KategoriaOcen">
+            <EntityTypeMapping TypeName="LgSchoolModel.KategoriaOcen">
+              <MappingFragment StoreEntitySet="KategoriaOcen">
+                <ScalarProperty Name="kategoriaID" ColumnName="kategoriaID" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kurs">
+            <EntityTypeMapping TypeName="LgSchoolModel.Kurs">
+              <MappingFragment StoreEntitySet="Kurs">
+                <ScalarProperty Name="kursID" ColumnName="kursID" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="poziomID" ColumnName="poziomID" />
+                <ScalarProperty Name="pracownikID" ColumnName="pracownikID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListaDoGrup">
+            <EntityTypeMapping TypeName="LgSchoolModel.ListaDoGrup">
+              <MappingFragment StoreEntitySet="ListaDoGrup">
+                <ScalarProperty Name="listaID" ColumnName="listaID" />
+                <ScalarProperty Name="grupaID" ColumnName="grupaID" />
+                <ScalarProperty Name="uczenID" ColumnName="uczenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Materialy">
+            <EntityTypeMapping TypeName="LgSchoolModel.Materialy">
+              <MappingFragment StoreEntitySet="Materialy">
+                <ScalarProperty Name="materialID" ColumnName="materialID" />
+                <ScalarProperty Name="typID" ColumnName="typID" />
+                <ScalarProperty Name="tytul" ColumnName="tytul" />
+                <ScalarProperty Name="autorID" ColumnName="autorID" />
+                <ScalarProperty Name="gatunekID" ColumnName="gatunekID" />
+                <ScalarProperty Name="poziomID" ColumnName="poziomID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ocena">
+            <EntityTypeMapping TypeName="LgSchoolModel.Ocena">
+              <MappingFragment StoreEntitySet="Ocena">
+                <ScalarProperty Name="ocenaID" ColumnName="ocenaID" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+                <ScalarProperty Name="uczenID" ColumnName="uczenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OcenyUcznia">
+            <EntityTypeMapping TypeName="LgSchoolModel.OcenyUcznia">
+              <MappingFragment StoreEntitySet="OcenyUcznia">
+                <ScalarProperty Name="ocenyUczniaID" ColumnName="ocenyUczniaID" />
+                <ScalarProperty Name="uczenID" ColumnName="uczenID" />
+                <ScalarProperty Name="ocenaID" ColumnName="ocenaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Poziom">
+            <EntityTypeMapping TypeName="LgSchoolModel.Poziom">
+              <MappingFragment StoreEntitySet="Poziom">
+                <ScalarProperty Name="poziomID" ColumnName="poziomID" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PozycjeFaktury">
+            <EntityTypeMapping TypeName="LgSchoolModel.PozycjeFaktury">
+              <MappingFragment StoreEntitySet="PozycjeFaktury">
+                <ScalarProperty Name="pozycjeFakturyID" ColumnName="pozycjeFakturyID" />
+                <ScalarProperty Name="fakturaID" ColumnName="fakturaID" />
+                <ScalarProperty Name="uslugaID" ColumnName="uslugaID" />
+                <ScalarProperty Name="cena" ColumnName="cena" />
+                <ScalarProperty Name="ilosc" ColumnName="ilosc" />
+                <ScalarProperty Name="rabat" ColumnName="rabat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pracownik">
+            <EntityTypeMapping TypeName="LgSchoolModel.Pracownik">
+              <MappingFragment StoreEntitySet="Pracownik">
+                <ScalarProperty Name="pracownikID" ColumnName="pracownikID" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="dataUrodzenia" ColumnName="dataUrodzenia" />
+                <ScalarProperty Name="pesel" ColumnName="pesel" />
+                <ScalarProperty Name="ulica" ColumnName="ulica" />
+                <ScalarProperty Name="numer" ColumnName="numer" />
+                <ScalarProperty Name="kodPocztowy" ColumnName="kodPocztowy" />
+                <ScalarProperty Name="miejscowosc" ColumnName="miejscowosc" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="stanowiskoID" ColumnName="stanowiskoID" />
+                <ScalarProperty Name="dataZatrudnienia" ColumnName="dataZatrudnienia" />
+                <ScalarProperty Name="dataZwolnienia" ColumnName="dataZwolnienia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RodzajPlatnosci">
+            <EntityTypeMapping TypeName="LgSchoolModel.RodzajPlatnosci">
+              <MappingFragment StoreEntitySet="RodzajPlatnosci">
+                <ScalarProperty Name="rodzajPlatnosciID" ColumnName="rodzajPlatnosciID" />
+                <ScalarProperty Name="nazwaPlatnosci" ColumnName="nazwaPlatnosci" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rozliczenie">
+            <EntityTypeMapping TypeName="LgSchoolModel.Rozliczenie">
+              <MappingFragment StoreEntitySet="Rozliczenie">
+                <ScalarProperty Name="rozliczenieID" ColumnName="rozliczenieID" />
+                <ScalarProperty Name="numerRozliczenia" ColumnName="numerRozliczenia" />
+                <ScalarProperty Name="dataRozliczenia" ColumnName="dataRozliczenia" />
+                <ScalarProperty Name="pracownikID" ColumnName="pracownikID" />
+                <ScalarProperty Name="kursID" ColumnName="kursID" />
+                <ScalarProperty Name="iloscGodzin" ColumnName="iloscGodzin" />
+                <ScalarProperty Name="stawka" ColumnName="stawka" />
+                <ScalarProperty Name="bonusID" ColumnName="bonusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stanowisko">
+            <EntityTypeMapping TypeName="LgSchoolModel.Stanowisko">
+              <MappingFragment StoreEntitySet="Stanowisko">
+                <ScalarProperty Name="stanowiskoID" ColumnName="stanowiskoID" />
+                <ScalarProperty Name="nazwaStanowiska" ColumnName="nazwaStanowiska" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="LgSchoolModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="LgSchoolModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypyMaterialow">
+            <EntityTypeMapping TypeName="LgSchoolModel.TypyMaterialow">
+              <MappingFragment StoreEntitySet="TypyMaterialow">
+                <ScalarProperty Name="typID" ColumnName="typID" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TytulWplaty">
+            <EntityTypeMapping TypeName="LgSchoolModel.TytulWplaty">
+              <MappingFragment StoreEntitySet="TytulWplaty">
+                <ScalarProperty Name="tytulWplatyID" ColumnName="tytulWplatyID" />
+                <ScalarProperty Name="wplataID" ColumnName="wplataID" />
+                <ScalarProperty Name="kursID" ColumnName="kursID" />
+                <ScalarProperty Name="cena" ColumnName="cena" />
+                <ScalarProperty Name="iloscGodzin" ColumnName="iloscGodzin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uczen">
+            <EntityTypeMapping TypeName="LgSchoolModel.Uczen">
+              <MappingFragment StoreEntitySet="Uczen">
+                <ScalarProperty Name="uczenID" ColumnName="uczenID" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+                <ScalarProperty Name="dataUrodzenia" ColumnName="dataUrodzenia" />
+                <ScalarProperty Name="pesel" ColumnName="pesel" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="telefonOpiekuna" ColumnName="telefonOpiekuna" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="statusID" ColumnName="statusID" />
+                <ScalarProperty Name="grupaID" ColumnName="grupaID" />
+                <ScalarProperty Name="ocenaID" ColumnName="ocenaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usluga">
+            <EntityTypeMapping TypeName="LgSchoolModel.Usluga">
+              <MappingFragment StoreEntitySet="Usluga">
+                <ScalarProperty Name="uslugaID" ColumnName="uslugaID" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="cena" ColumnName="cena" />
+                <ScalarProperty Name="stawkaVAT" ColumnName="stawkaVAT" />
+                <ScalarProperty Name="opis" ColumnName="opis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uzytkownik">
+            <EntityTypeMapping TypeName="LgSchoolModel.Uzytkownik">
+              <MappingFragment StoreEntitySet="Uzytkownik">
+                <ScalarProperty Name="uzytkownikID" ColumnName="uzytkownikID" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="haslo" ColumnName="haslo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wplata">
+            <EntityTypeMapping TypeName="LgSchoolModel.Wplata">
+              <MappingFragment StoreEntitySet="Wplata">
+                <ScalarProperty Name="wplataID" ColumnName="wplataID" />
+                <ScalarProperty Name="numerWplaty" ColumnName="numerWplaty" />
+                <ScalarProperty Name="uczenID" ColumnName="uczenID" />
+                <ScalarProperty Name="firmaID" ColumnName="firmaID" />
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="rodzajPlatnosciID" ColumnName="rodzajPlatnosciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

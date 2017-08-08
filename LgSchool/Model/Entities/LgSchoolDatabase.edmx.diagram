@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="886570cde9b247ceb4af29bda31e4e56" Name="Diagram1">
+        <EntityTypeShape EntityType="LgSchoolModel.Autor" Width="1.5" PointX="8.75" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Bonusy" Width="1.5" PointX="6" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Cennik" Width="1.5" PointX="8.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Dostepnosc" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Faktura" Width="1.5" PointX="11.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Firma" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Gatunek" Width="1.5" PointX="8.75" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Grupa" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.KategoriaOcen" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Kurs" Width="1.5" PointX="6" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.ListaDoGrup" Width="1.5" PointX="13.5" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Materialy" Width="1.5" PointX="11" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Ocena" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.OcenyUcznia" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Poziom" Width="1.5" PointX="3.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.PozycjeFaktury" Width="1.5" PointX="13.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Pracownik" Width="1.5" PointX="3.75" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.RodzajPlatnosci" Width="1.5" PointX="9" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Rozliczenie" Width="1.5" PointX="8.25" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Stanowisko" Width="1.5" PointX="1.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Status" Width="1.5" PointX="3.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.TypyMaterialow" Width="1.5" PointX="8.75" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.TytulWplaty" Width="1.5" PointX="13.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Uczen" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Usluga" Width="1.5" PointX="11.25" PointY="20.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Uzytkownik" Width="1.5" PointX="5.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LgSchoolModel.Wplata" Width="1.5" PointX="11.25" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="LgSchoolModel.FK_Materialy_Autor" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Rozliczenie_Bonusy" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Cennik_Kurs" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Faktura_RodzajPlatnosci" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_PozycjeFaktury_Faktura" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Firma_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Wplata_Firma" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Materialy_Gatunek" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Grupa_Kurs" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Grupa_Poziom" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Grupa_Uczen" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_ListaDoGrup_Grupa" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Kurs_Poziom" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Kurs_Pracownik" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Rozliczenie_Kurs" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_TytulWplaty_Kurs" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_ListaDoGrup_Uczen" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Materialy_Poziom" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Materialy_TypyMaterialow" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_OcenyUcznia_Ocena" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Uczen_Ocena" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_OcenyUcznia_Uczen" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_PozycjeFaktury_Usluga" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Pracownik_Stanowisko" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Rozliczenie_Pracownik" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Wplata_RodzajPlatnosci" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Uczen_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_TytulWplaty_Wplata" ManuallyRouted="false" />
+        <AssociationConnector Association="LgSchoolModel.FK_Wplata_Uczen" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
